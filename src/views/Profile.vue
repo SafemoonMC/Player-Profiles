@@ -1,8 +1,11 @@
 <template>
 <div class="h-screen bg-gray-500 pt-24 px-14">
     <div class="rounded-lg bg-white">
-        <div v-if="this.name.length === 0">
-            Player not found!
+        <div v-if="this.name.length === 0" class="items-center text-center">
+            <div class="py-16">
+                <h3 class="text-3xl font-bold pb-4">Player not found!</h3>            
+                <img class="block lg:hidden h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
+            </div>
         </div>
         <div v-else>
             <div class="flex mx-auto p-5">
