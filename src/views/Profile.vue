@@ -14,6 +14,9 @@
                 </div>
                 <div class="ml-10">
                     <h1 class="font-bold text-4xl">{{this.name.charAt(0).toUpperCase() + this.name.slice(1)}}</h1>
+                    <h1 class="">* Donator Rank Here*</h1>
+                    <h1 class="pt-2">Last online: {{convertDate(this.data.loginData.lastJoin)}}</h1>
+                    <h1 class="">First online: {{convertDate(this.data.loginData.firstJoin)}}</h1>
                 </div>
             </div>
         </div>
@@ -22,6 +25,7 @@
 </template>
 <script>
 import axios from 'axios'
+import dateFormat from 'dateformat'
 export default {
   name: 'App',
   data() {
@@ -29,6 +33,14 @@ export default {
       name: "",
       data: null,
     };
+  },
+  methods: {
+      convertDate(time) {
+          return dateFormat(time, "dddd, mmmm dS, yyyy, h:MM:ss TT")
+      },
+      convertDateNoTime(time) {
+          return dateFormat(time, "fullDate");
+      }
   },
   mounted() {
     this.name = this.$route.params.name;
@@ -38,7 +50,7 @@ export default {
   computed: {
       skinUrl() {
           return `https://crafatar.com/renders/body/${this.data.uuid}`
-      }
+      },
   }
   
 };
