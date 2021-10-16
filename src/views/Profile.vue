@@ -10,7 +10,7 @@
         <div v-else>
             <div class="flex mx-auto p-5">
                 <div>
-                    <img :src="skinUrl">
+                    <img :src="getSkin(this.data.uuid)">
                 </div>
                 <div class="ml-10">
                     <h1 class="font-bold text-4xl">{{this.name.charAt(0).toUpperCase() + this.name.slice(1)}}</h1>
@@ -40,6 +40,9 @@ export default {
       },
       convertDateNoTime(time) {
           return dateFormat(time, "fullDate");
+      },
+      getSkin(uuid) {
+          return `https://crafatar.com/renders/body/${uuid}?default=MHF_Steve&overlay`
       }
   },
   mounted() {
@@ -48,9 +51,6 @@ export default {
         .then(response => (this.data = response.data))
   },
   computed: {
-      skinUrl() {
-          return `https://crafatar.com/renders/body/${this.data.uuid}`
-      },
   }
   
 };
