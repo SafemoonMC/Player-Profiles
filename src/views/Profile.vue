@@ -1,6 +1,6 @@
 <template>
-<div class="h-screen bg-gray-500 pt-24 px-14">
-    <div class="rounded-lg bg-white">
+<div class="h-screen bg-gray-500 pt-24 px-14 flex justify-center">
+    <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6 h-5/6">
         <div v-if="this.name.length === 0" class="items-center text-center">
             <div class="py-16">
                 <h3 class="text-3xl font-bold pb-4">Player not found!</h3>            
@@ -8,16 +8,58 @@
             </div>
         </div>
         <div v-else>
-            <div class="flex mx-auto p-5">
+            <div class="flex mx-auto p-5 justify-center">
                 <div>
                     <img :src="getSkin(this.data.uuid)">
                 </div>
                 <div class="ml-10">
                     <h1 class="font-bold text-4xl">{{this.name.charAt(0).toUpperCase() + this.name.slice(1)}}</h1>
-                    <h1 class="">* Donator Rank Here*</h1>
+                    <h1 class="">* Highest Rank Here*</h1>
                     <h1 class="pt-2">Last online: {{convertDate(this.data.loginData.lastJoin)}}</h1>
                     <h1 class="">First online: {{convertDate(this.data.loginData.firstJoin)}}</h1>
+                    <h1 class="">Times joined: {{this.data.loginData.totalJoins}}</h1>
                 </div>
+            </div>
+            <div class="grid md:grid-cols-2 grid-cols-1 gap-5 p-8">
+                <div class="bg-gray-100 rounded-sm shadow-lg">
+                    <div class="text-center">
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-2xl font-semibold">Azkaban</p>
+                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-sm shadow-lg">
+                    <div class="text-center">
+                        <p class="text-2xl font-semibold">Alkatraz</p>
+                        <p class="text-lg font-semibold opacity-40">OG Prison</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
