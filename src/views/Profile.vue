@@ -1,6 +1,6 @@
 <template>
-<div class="h-screen bg-gray-500 pt-24 px-14 flex justify-center">
-    <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6 h-5/6">
+<div class="bg-gray-500 pt-24 px-14 flex justify-center">
+    <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6">
         <div v-if="this.name.length === 0" class="items-center text-center">
             <div class="py-16">
                 <h3 class="text-3xl font-bold pb-4">Player not found!</h3>            
@@ -24,39 +24,125 @@
                 <div class="bg-gray-100 rounded-sm shadow-lg">
                     <div class="text-center">
                         <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
-                        <p class="text-2xl font-semibold">Azkaban</p>
-                        <p class="text-lg font-semibold text-gray-400">OP Prison</p>
+                        <p class="text-lg font-semibold opacity-40 pb-2">RPG Prison</p>
+                        <div class="grid-cols-2 gap-2 flex">
+                            <div class="text-left pl-4 pb-2">
+                                <p>Prestige:</p>
+                                <p>Current Mine:</p>
+                                <p>Blocks Broken:</p>
+                            </div>
+                            <div class="text-left">
+                                <p>{{this.data.opPrisonData.prestige}}</p>
+                                <p>{{this.data.opPrisonData.currentMine}}</p>
+                                <p>{{this.data.opPrisonData.blocksBroken}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-gray-100 rounded-sm shadow-lg">
                     <div class="text-center">
                         <p class="text-2xl font-semibold">Alkatraz</p>
-                        <p class="text-lg font-semibold opacity-40">OG Prison</p>
+                        <p class="text-lg font-semibold opacity-40 pb-2">OG Prison</p>
+                        <div class="grid-cols-2 gap-2 flex">
+                            <div class="text-left pl-4 pb-2">
+                                <p>Prestige:</p>
+                                <p>Current Mine:</p>
+                                <p>Blocks Broken:</p>
+                            </div>
+                            <div class="text-left">
+                                <p>{{this.data.ogPrisonData.prestige}}</p>
+                                <p>{{this.data.ogPrisonData.currentMine}}</p>
+                                <p>{{this.data.ogPrisonData.blocksBroken}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-sm shadow-lg">
+                    <div class="text-center">
+                        <p class="text-2xl font-semibold">BedWars</p>
+                        <p class="text-lg font-semibold opacity-40 pb-2">Classic</p>
+                        <div class="grid-cols-2 gap-2 flex">
+                            <div class="text-left pl-4 pb-2">
+                                <p>Wins:</p>
+                                <p>Losses:</p>
+                                <p>Kills:</p>
+                                <p>Deaths:</p>
+                                <p>KDR:</p>
+                                <p>Final Kills:</p>
+                                <p>Beds Broken:</p>
+                                <p class="font-semibold">Looted Items</p>
+                                <ul class="list-disc pl-6">
+                                    <li>Iron:</li>
+                                    <li>Gold:</li>
+                                    <li>Diamonds:</li>
+                                    <li>Emeralds:</li>
+                                </ul>
+                                <p class="font-semibold">Used Items</p>
+                                <ul class="list-disc pl-6">
+                                    <li>Bed Buds:</li>
+                                    <li>Bridge Eggs:</li>
+                                    <li>Pop-up Towers:</li>
+                                    <li>Dream Defenders:</li>
+                                </ul>
+                            </div>
+                            <div class="text-left">
+                                <p>{{this.data.bedwarsData.wins}}</p>
+                                <p>{{this.data.bedwarsData.losses}}</p>
+                                <p>{{this.data.bedwarsData.kills}}</p>
+                                <p>{{this.data.bedwarsData.deaths}}</p>
+                                <p>{{this.data.bedwarsData.kills / this.data.bedwarsData.deaths}}</p>
+                                <p>{{this.data.bedwarsData.finalKills}}</p>
+                                <p>{{this.data.bedwarsData.bedsBroken}}</p>
+                                <br>
+                                <p>{{this.data.bedwarsData.ironLooted}}</p>
+                                <p>{{this.data.bedwarsData.goldLooted}}</p>
+                                <p>{{this.data.bedwarsData.diamondsLooted}}</p>
+                                <p>{{this.data.bedwarsData.emeraldsLooted}}</p>
+                                <br>
+                                <p>{{this.data.bedwarsData.bedbugsThrown}}</p>
+                                <p>{{this.data.bedwarsData.bridgeEggsThrown}}</p>
+                                <p>{{this.data.bedwarsData.towersUsed}}</p>
+                                <p>{{this.data.bedwarsData.dreamDefendersUsed}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-sm shadow-lg">
+                    <div class="text-center">
+                        <p class="text-2xl font-semibold">Starfruit</p>
+                        <p class="text-lg font-semibold opacity-40 pb-2">MMO Skyblock</p>
+                        <div class="grid-cols-2 gap-2 flex">
+                            <div class="text-left pl-4 pb-2">
+                                <p class="font-semibold">Stats</p>
+                                <ul class="list-disc pl-6">
+                                    <li>Mining:</li>
+                                    <li>Archaeology:</li>
+                                    <li>Construction:</li>
+                                    <li>Adventuring:</li>
+                                    <li>Foraging:</li>
+                                    <li>Smithing:</li>
+                                    <li>Zoology:</li>
+                                    <li>Dueling:</li>
+                                    <li>Fishing:</li>
+                                    <li>Warfare:</li>
+                                    <li>Farming:</li>
+                                </ul>
+                            </div>
+                            <div class="text-left">
+                                <br>
+                                <p>{{this.data.starfruitData.stats.Mining}}</p>
+                                <p>{{this.data.starfruitData.stats.Archaeology}}</p>
+                                <p>{{this.data.starfruitData.stats.Construction}}</p>
+                                <p>{{this.data.starfruitData.stats.Adventuring}}</p>
+                                <p>{{this.data.starfruitData.stats.Foraging}}</p>
+                                <p>{{this.data.starfruitData.stats.Smithing}}</p>
+                                <p>{{this.data.starfruitData.stats.Zoology}}</p>
+                                <p>{{this.data.starfruitData.stats.Dueling}}</p>
+                                <p>{{this.data.starfruitData.stats.Fishing}}</p>
+                                <p>{{this.data.starfruitData.stats.Warfare}}</p>
+                                <p>{{this.data.starfruitData.stats.Farming}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
