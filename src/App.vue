@@ -1,6 +1,8 @@
 <template>
-<Navbar />
+<div class="min-h-screen bg-gray-500">
+    <Navbar/>
 <router-view />
+</div>
 </template>
 <script>
 import Navbar from "@/components/Navbar.vue"

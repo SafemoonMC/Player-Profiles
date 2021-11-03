@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-500 py-16 sm:py-24 min-h-full h-screen">
+  <div class="py-16 sm:py-24">
     <img src="@/assets/logo.png" class="max-w-xs mx-auto">
     <div class="relative sm:py-16">
       <div aria-hidden="true" class="hidden sm:block">
@@ -40,6 +40,8 @@
 </template>
 <script>
 export default {
+  components: {
+  },
     methods: {
         getPlayerName() {
             this.$router.push("/profile/" + this.name)
