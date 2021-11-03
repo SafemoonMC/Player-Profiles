@@ -23,7 +23,7 @@
                     <div class="grid-cols-2 gap-4 flex justify-center">
                         <div class="text-left pb-2">
                             <div v-for="item in type.items" :key="item.name">
-                                <p>{{item.name}}</p>
+                                <p>{{formatString(item.name)}}</p>
                             </div>
                         </div>
                         <div class="text-left">
@@ -72,7 +72,11 @@ export default {
           return this.collections.forEach(type => {
               return type.name
           })
-      }
+      },
+    formatString(string) {
+        string = string.replace("_", " ");
+        return string.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+    }
   },
   setup() {
     const open = ref(false)

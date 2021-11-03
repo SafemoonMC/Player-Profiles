@@ -196,7 +196,7 @@ export default {
       },
     toggleCollectionsModal() {
       this.$refs.collectionsModal.open = true;
-    },
+    }
   },
   mounted() {
     this.name = this.$route.params.name;
