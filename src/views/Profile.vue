@@ -1,4 +1,5 @@
 <template>
+<CollectionsModal v-if="this.data" :collections="this.data.starfruitData.collections" ref="collectionsModal"/>
 <div class="bg-gray-500 pt-24 px-14 flex justify-center">
     <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6">
         <div v-if="this.name.length === 0" class="items-center text-center">
@@ -93,12 +94,12 @@
                                 <p>{{this.data.bedwarsData.kills / this.data.bedwarsData.deaths}}</p>
                                 <p>{{this.data.bedwarsData.finalKills}}</p>
                                 <p>{{this.data.bedwarsData.bedsBroken}}</p>
-                                <br>
+                                <br />
                                 <p>{{this.data.bedwarsData.ironLooted}}</p>
                                 <p>{{this.data.bedwarsData.goldLooted}}</p>
                                 <p>{{this.data.bedwarsData.diamondsLooted}}</p>
                                 <p>{{this.data.bedwarsData.emeraldsLooted}}</p>
-                                <br>
+                                <br />
                                 <p>{{this.data.bedwarsData.bedbugsThrown}}</p>
                                 <p>{{this.data.bedwarsData.bridgeEggsThrown}}</p>
                                 <p>{{this.data.bedwarsData.towersUsed}}</p>
@@ -126,10 +127,13 @@
                                     <li>Fishing:</li>
                                     <li>Warfare:</li>
                                     <li>Farming:</li>
+                                    <br />
                                 </ul>
+                                <p class="font-semibold">Collections</p>
+                                <p class="pl-4">Total Collected:</p>
                             </div>
                             <div class="text-left">
-                                <br>
+                                <br />
                                 <p>{{this.data.starfruitData.stats.Mining}}</p>
                                 <p>{{this.data.starfruitData.stats.Archaeology}}</p>
                                 <p>{{this.data.starfruitData.stats.Construction}}</p>
@@ -141,7 +145,13 @@
                                 <p>{{this.data.starfruitData.stats.Fishing}}</p>
                                 <p>{{this.data.starfruitData.stats.Warfare}}</p>
                                 <p>{{this.data.starfruitData.stats.Farming}}</p>
+                                <br />
+                                <br />
+                                <p>{{getTotalCollected()}}</p>
                             </div>
+                        </div>
+                        <div class="px-10 pb-2 w-72 mx-auto">
+                            <button @click="toggleCollectionsModal()" class="block w-full rounded-md border border-transparent py-1 bg-blue-400 text-base font-medium text-white shadow hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 sm:px-10">Collection Data</button>
                         </div>
                     </div>
                 </div>
@@ -152,10 +162,14 @@
 </div>
 </template>
 <script>
+import CollectionsModal from "@/components/CollectionsModal.vue"
 import axios from 'axios'
 import dateFormat from 'dateformat'
 export default {
   name: 'App',
+  components: {
+      CollectionsModal
+  },
   data() {
     return {
       name: "",
@@ -171,7 +185,18 @@ export default {
       },
       getSkin(uuid) {
           return `https://crafatar.com/renders/body/${uuid}?default=MHF_Steve&overlay`
-      }
+      },
+      getTotalCollected() {
+          var collections = this.data.starfruitData.collections;
+          var count = 0;
+          collections.forEach(type => {
+              count += type.items.length;
+          })
+          return count;
+      },
+    toggleCollectionsModal() {
+      this.$refs.collectionsModal.open = true;
+    },
   },
   mounted() {
     this.name = this.$route.params.name;
