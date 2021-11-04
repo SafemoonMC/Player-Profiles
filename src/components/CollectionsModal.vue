@@ -18,6 +18,10 @@
                 <DialogTitle as="h3" class="text-xl leading-6 font-medium text-gray-900">
                   Collections Data
                 </DialogTitle>
+                <div v-if="this.collections.length == 0">
+                    <p class="pt-4 font-semibold">No items collected yet!</p>
+                    <img class="block pt-4 h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
+                </div>
                 <div v-for="type in this.collections" :key="type.name" class="pt-4">
                     <p class="font-semibold text-lg">{{type.name}}</p>
                     <div class="grid-cols-2 gap-4 flex justify-center">
