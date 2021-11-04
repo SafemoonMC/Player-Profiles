@@ -1,11 +1,11 @@
 <template>
 <CollectionsModal v-if="this.data" :collections="this.data.starfruitData.collections" ref="collectionsModal"/>
 <div class="bg-gray-500 pt-24 px-14 flex justify-center">
-    <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6">
+    <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6 pb-6">
         <div v-if="this.name.length === 0" class="items-center text-center">
             <div class="py-16">
                 <h3 class="text-3xl font-bold pb-4">Player not found!</h3>            
-                <img class="block lg:hidden h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
+                <img class="block h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
             </div>
         </div>
         <div v-else>
@@ -150,7 +150,7 @@
                                 <p>{{getTotalCollected()}}</p>
                             </div>
                         </div>
-                        <div class="px-10 pb-2 w-72 mx-auto">
+                        <div class="px-2 pb- mx-auto" style="max-width: 250px;">
                             <button @click="toggleCollectionsModal()" class="block w-full rounded-md border border-transparent py-1 bg-blue-400 text-base font-medium text-white shadow hover:bg-blue-300 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-600 sm:px-10">Collection Data</button>
                         </div>
                     </div>
