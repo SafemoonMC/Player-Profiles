@@ -11,7 +11,7 @@
         <div v-else-if="!isLoaded" class="items-center text-center">
             <div class="py-16">
                 <h3 class="text-3xl font-bold pb-4">Loading Profile</h3>            
-                <img class="block h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
+                <img class="block h-48 w-auto mx-auto" src="@/assets/steve.png" alt="Mooncraft" />
             </div>
         </div>
         <div v-else>
