@@ -2,9 +2,15 @@
 <CollectionsModal v-if="this.data" :collections="this.data.starfruitData.collections" ref="collectionsModal"/>
 <div class="bg-gray-500 pt-24 px-14 flex justify-center">
     <div class="rounded-lg bg-white md:w-5/6 lg:w-4/6 2xl:w-3/6 pb-6">
-        <div v-if="this.name.length === 0" class="items-center text-center">
+        <div v-if="!doesPlayerExist && isLoaded" class="items-center text-center">
             <div class="py-16">
                 <h3 class="text-3xl font-bold pb-4">Player not found!</h3>            
+                <img class="block h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
+            </div>
+        </div>
+        <div v-else-if="!isLoaded" class="items-center text-center">
+            <div class="py-16">
+                <h3 class="text-3xl font-bold pb-4">Loading Profile</h3>            
                 <img class="block h-48 w-auto mx-auto" src="@/assets/sadcreeper.png" alt="Mooncraft" />
             </div>
         </div>
@@ -15,7 +21,7 @@
                 </div>
                 <div class="ml-10">
                     <h1 class="font-bold text-4xl">{{this.name.charAt(0).toUpperCase() + this.name.slice(1)}}</h1>
-                    <h1 class="">* Highest Rank Here*</h1>
+                    <h1 class="font-bold">{{this.data.rank.charAt(0).toUpperCase() + this.data.rank.slice(1)}}</h1>
                     <h1 class="pt-2">Last online: {{convertDate(this.data.loginData.lastJoin)}}</h1>
                     <h1 class="">First online: {{convertDate(this.data.loginData.firstJoin)}}</h1>
                     <h1 class="">Times joined: {{this.data.loginData.totalJoins}}</h1>
@@ -174,6 +180,8 @@ export default {
     return {
       name: "",
       data: null,
+      doesPlayerExist: false,
+      isLoaded: false,
     };
   },
   methods: {
@@ -201,7 +209,15 @@ export default {
   mounted() {
     this.name = this.$route.params.name;
     axios.get('https://mcapi.safemoon.net/player/' + this.name)
-        .then(response => (this.data = response.data))
+        .then(response => {
+            this.data = response.data
+            this.doesPlayerExist = true
+        })
+        .catch(() => {
+            this.doesPlayerExist = false
+            this.isLoaded = true
+        })
+        .finally(() => (this.isLoaded = true))
   },
   computed: {
   }
