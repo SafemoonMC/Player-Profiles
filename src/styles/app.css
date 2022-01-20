@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+div.min-h-screen {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:url(../assets/background-pp-min.png);
+}
+
+div.navmoon {
+    background-color: #008A81;
+}
+li.stat {
+    margin: 0.5px 0;
+}

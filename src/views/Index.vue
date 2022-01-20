@@ -3,7 +3,7 @@
     <img src="@/assets/logo.png" class="max-w-xs mx-auto">
     <div class="relative sm:py-16">
       <div aria-hidden="true" class="hidden sm:block">
-        <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-500 rounded-r-3xl" />
+        <!-- <div class="absolute inset-y-0 left-0 w-1/2 bg-gray-500 rounded-r-3xl" /> -->
       </div>
       <div class="mx-auto max-w-md px-4 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="relative rounded-2xl px-6 py-10 bg-mc-light overflow-hidden shadow-xl sm:px-12 sm:py-20">

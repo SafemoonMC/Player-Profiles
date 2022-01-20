@@ -1,5 +1,5 @@
 <template>
-  <Disclosure as="nav" class="bg-white shadow" v-slot="{ open }">
+  <Disclosure as="nav" :style="{backgroundColor:`#F5F5F7`}" v-slot="{ open }">
     <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-8">
       <div class="flex justify-between h-16">
         <div class="flex px-2 lg:px-0">
@@ -11,19 +11,13 @@
           </div>
           <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
             <!-- Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" -->
-            <a href="https://mc.safemoon.net" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+            <a href="https://mc.safemoon.net" class="border-indigo-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-large">
               Home
             </a>
             <a href="https://mcstore.safemoon.net" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
               Store
             </a>
-            <a href="https://mc.safemoon.net/vote" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Vote
-            </a>
-            <a href="https://mcwiki.safemoon.net" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-              Wiki
-            </a>
-          </div>
+           </div>
         </div>
         <div class="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-end">
             <form @submit="getPlayerName()">
@@ -34,7 +28,6 @@
                 <SearchIcon class="h-5 w-5 text-gray-400" aria-hidden="true" />
               </div>
               <input v-model="name" class="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-mc-light focus:border-mc-dark sm:text-sm" placeholder="Search Player" />
-
             </div>
           </div>
             </form>
@@ -55,8 +48,6 @@
         <!-- Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800" -->
         <a href="https://mc.safemoon.net" class="bg-indigo-50 border-indigo-500 text-indigo-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Home</a>
         <a href="https://mcstore.safemoon.net" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Store</a>
-        <a href="https://mc.safemoon.net/vote" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Vote</a>
-        <a href="https://mcwiki.safemoon.net" class="border-transparent text-gray-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Wiki</a>
       </div>
     </DisclosurePanel>
   </Disclosure>
